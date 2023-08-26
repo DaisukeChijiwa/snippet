@@ -314,4 +314,18 @@ def findDuplicate(nums):
     return l
 
 ##################################################################
-## 
+##  nCm
+
+def nCm(n, m):
+    nPm = 1
+    for i in range(M):
+        nPm *= (N - i)
+    factM = 1
+    for i in range(1, M + 1, 1):
+        factM *= i
+
+    ans = nPm // factM
+    return ans
+
+##################################################################
+##
