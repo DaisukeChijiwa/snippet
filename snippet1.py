@@ -316,7 +316,7 @@ def findDuplicate(nums):
 ##################################################################
 ##  nCm
 
-def nCm(n, m):
+def nCm(N, M):
     nPm = 1
     for i in range(M):
         nPm *= (N - i)
