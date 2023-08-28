@@ -129,7 +129,7 @@ def eratosthenes(n):
         if isPrimes[i]:
             # i の倍数を取り除く
             for j in range(2*i, n+1, i):
-                isprimes[j] = False
+                isPrimes[j] = False
 
     # 2 から n までの素数のリストを返す
     return [i for i in range(2, n+1) if isPrimes[i]]
