@@ -179,6 +179,26 @@ def factorization(n):
     return arr
 
 
+##################################################################
+## 素因数分解 2 （素因数と指数の組みのタプル）
+
+def prime_factorize(N):
+    res = []
+    for p in range(2, N):
+        if p * p > N:
+            break
+        if N % p != 0:
+            continue
+        e = 0
+        while N % p == 0:
+            e += 1
+            N //= p
+        res.append((p, e))
+    if N != 1:
+        res.append((N, 1))
+    return res
+
+
 ###################################################################
 ## 約数列挙
 
