@@ -1,5 +1,5 @@
 #####################################################################
-## Union Find
+# Union Find
 
 class UnionFind():
     # 初期化
@@ -40,7 +40,7 @@ class UnionFind():
     
 
 ###################################################################
-## セグメントツリー
+# セグメントツリー
 
 #####segfunc#####
 def segfunc(x, y):
@@ -114,7 +114,7 @@ class SegTree:
 
 
 ######################################################################
-## エラトステネスの篩
+# エラトステネスの篩
 
 def eratosthenes(n):
     # n までの自然数を列挙する
@@ -136,7 +136,7 @@ def eratosthenes(n):
 
 
 ###################################################################
-## 素数判定
+# 素数判定
 
 import math
 
@@ -155,9 +155,40 @@ def is_prime(num):
     
     return True
 
+###################################################################
+# 素数判定 ミラー・ラビン
+# https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test
+# Algorithm: http://bit.ly/2drtk0x
+###################################################################
+
+import random
+
+def is_prime_mr(n, k = 3):
+   if n < 6:
+      return [False, False, True, True, False, True][n]
+   elif n % 2 == 0:
+      return False
+   else:
+      s, d = 0, n - 1
+      while d % 2 == 0:
+         s, d = s + 1, d >> 1
+      for a in random.sample(range(2, n-2), k):
+         x = pow(a, d, n)
+         if x != 1 and x + 1 != n:
+            for r in range(1, s):
+               x = pow(x, 2, n)
+               if x == 1:
+                  return False
+               elif x == n - 1:
+                  a = 0
+                  break
+            if a:
+               return False
+      return True
+
 
 ##################################################################
-## 素因数分解（素因数と指数の組みのリスト）
+# 素因数分解（素因数と指数の組みのリスト）
 
 def factorization(n):
     arr = []
@@ -180,7 +211,7 @@ def factorization(n):
 
 
 ##################################################################
-## 素因数分解 2 （素因数と指数の組みのタプル）
+# 素因数分解 2 （素因数と指数の組みのタプル）
 
 def prime_factorize(N):
     res = []
@@ -200,7 +231,7 @@ def prime_factorize(N):
 
 
 ###################################################################
-## 約数列挙
+# 約数列挙
 
 def divisor(n):
     ds = []
@@ -216,7 +247,7 @@ def divisor(n):
     return ds 
 
 ###############################################################
-## typical bfs
+# typical bfs
 
 from collections import deque
 
@@ -248,7 +279,7 @@ ans = dist[1:]
 print(*ans, sep="\n")
 
 #################################################################
-## typical dfs
+# typical dfs
 
 import sys
 sys.setrecursionlimit(10**7) # 再起回数の設定
@@ -285,7 +316,7 @@ print('No')
 
 
 ############################################################
-## 循環小数の計算
+# 循環小数の計算
 
 def unitFraction(numelator, duplicator):
     num = []
@@ -301,7 +332,7 @@ def unitFraction(numelator, duplicator):
             return num
         
 ##########################################################
-## 循環検出
+# 循環検出
 
 def findDuplicate(nums):
     hare = tortoise = 0
@@ -334,7 +365,7 @@ def findDuplicate(nums):
     return l
 
 ##################################################################
-##  nCm
+#  nCm
 
 def nCm(N, M):
     nPm = 1
@@ -348,4 +379,4 @@ def nCm(N, M):
     return ans
 
 ##################################################################
-##
+#
